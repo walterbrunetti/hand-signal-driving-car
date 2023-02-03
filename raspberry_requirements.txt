@@ -1,0 +1,12 @@
+
+tensorflow==2.11.0
+tensorflow-io==0.30.0
+numpy==1.24.1
+RPi.GPIO
+
+
+# Versions
+#Python 3.9.6 (mac) - Rpi 3.9.2 - colab 3.8
+#tensorflow r2.11 latest  colab 2.9.2
+#NumPy 1.24.1 (latest)  colab 1.21.6
+
