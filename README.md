@@ -39,27 +39,12 @@ activate env
 Namely, after training a Keras model, which is stored in a model variable, we like to save it as it is so that on next loading we can skip training and just make predictions. 
 
 
+Difference between the 3 ways:
+https://stackoverflow.com/questions/66827371/difference-between-tf-saved-model-savemodel-path-to-dir-and-tf-keras-model-sa
 
-```
-  # Saved model sanity check
-  saved_model = tf.keras.models.load_model(saved_model_path)
 
-  # check predictions are identical
-  pred_inputs, _ = next(iter(train_dataset))
-  pred = model(pred_inputs, training=False)
-  pred2 = saved_model(pred_inputs, training=False)
-
-  tf.debugging.assert_equal(pred, pred2)
-
-```
-
-Using the SavedModel format
-```
-To Save: tf.saved_model.save(model, path_to_dir)
-To Load: model = tf.saved_model.load(path_to_dir)
-```
 https://www.tensorflow.org/guide/saved_model
-
+https://keras.io/guides/serialization_and_saving/
 
 https://medium.com/mlearning-ai/why-loading-a-previously-saved-keras-model-gives-different-results-lessons-learned-aeea1014e0ba  --> reasons why loading a model might give different predictions
 
@@ -89,9 +74,25 @@ For the lores stream, only 'YUV420' is really used.
 
 
 
-# Capturing
-Open questions:
-- image or array capture?
-- should I have a layer for resizing or just capture in the desired size?
-- queston above is valid for traing and vision captures 
+
+## Progress
+
+```
+Epoch 5/5
+4/4 [==============================] - 2s 503ms/step - loss: 0.6930 - accuracy: 0.5000 - val_loss: 0.6842 - val_accuracy: 0.5000
+
+
+Epoch 15/15
+4/4 [==============================] - 2s 496ms/step - loss: 0.2813 - accuracy: 0.8958 - val_loss: 0.2313 - val_accuracy: 0.8333
+
+Epoch 15/15
+6/6 [==============================] - 3s 452ms/step - loss: 0.4502 - accuracy: 0.8421 - val_loss: 0.2383 - val_accuracy: 0.9500
+
+```
+
+
+## Next steps
+
+- How to predict or classify a No class/ unclassified image in tensorflow. I am working on a multi-class classification problem. I want the model to detect
+
 

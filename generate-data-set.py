@@ -4,10 +4,13 @@ from picamera2 import Picamera2
 import time
 import numpy
 import pygame
-"""
-tar -zcvf hand-palm.tar.gz hand-palm
 
-tar -zxvf hand-palm.tar.gz
+import argparse
+
+"""
+tar -zcvf gestures.tar.gz gestures-photos
+
+tar -zxvf gestures.tar.gz
 
 
 
@@ -16,10 +19,10 @@ Default size:
     width x height of the image
 """
 
-def capture():
+def capture(class_name, number_of_captures):
 
     pygame.mixer.init()
-    pygame.mixer.music.load("bip.wav")
+    pygame.mixer.music.load("sound1.mp3")
 
 
     picam2 = Picamera2()
@@ -28,34 +31,28 @@ def capture():
     picam2.start()
 
 
-    print("Prepare")
+    print("Prepare yourself...")
     time.sleep(5)
 
     all_images = []
 
-    for i in range(2):
+    for i in range(number_of_captures):
 
-        #print("3 seconds")
-        #time.sleep(3)
-
-        
-        #print("1 second")
-        #time.sleep(1)
-        
-
+        print("3 seconds")
         pygame.mixer.music.play()
+        time.sleep(4)
+        
+        timestamp = int(time.time())
+
         print(f"take {i}")
-        #picam2.capture_file(f"hand-palm/palm_{i}.jpg")
+        #picam2.capture_file(f"gestures-photos/{class_name}/{class_name}_{timestamp}.jpg")
 
         array = picam2.capture_array("main")   # <class 'numpy.ndarray'>  (height, width, 3) 3 channel RGB type formats
-
         all_images.append(array)
 
-    #print(all_images)
-    #print(type(all_images[0]))
 
     all_images = numpy.array(all_images)  #Test with this commented out
-    numpy.save('my_data', all_images)
+    numpy.save(f'{class_name}_data_zoom_1', all_images)
 
 
 def capture_video():
@@ -65,6 +62,16 @@ def capture_video():
 
 
 if __name__ == "__main__":
-    capture()
+
+    parser = argparse.ArgumentParser(
+            description="Capture frames",
+            formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+
+    parser.add_argument("class_name", help="Classification of the captures", choices=["palm", "punch"])
+    parser.add_argument("number_of_captures", help="Number of captures")
+
+    args = parser.parse_args()
+    capture(args.class_name, int(args.number_of_captures))
     #capture_video()
 
