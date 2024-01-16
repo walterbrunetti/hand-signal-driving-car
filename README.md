@@ -1,10 +1,17 @@
 # hand-signal-driving-car
-Computer vision project
+Basically It's a robot built with 3 wheels, a Rasberry Pi and a Camera.
+
+The model is trained to classify 2 types of images, the Punch and the Palm.
+
+If a Punch is detected, the robot will move forward.
+
+If a Palm is detected, the robot will stop moving.
 
 
 
 
-## Camera 5MP OV5647 v1.3 - Brand: HobbyTronica
+
+### Camera 5MP OV5647 v1.3 - Brand: HobbyTronica
 The camera module uses the OV5647 sensor capable of 5MP image capture at 2592 x 1944 resolution and 1080P video at 30 fps with H.264 (AVC) codec.
 
 
@@ -12,16 +19,16 @@ The camera module uses the OV5647 sensor capable of 5MP image capture at 2592 x 
 ## Installation
 
 
-## RaspberryPi
+### RaspberryPi
 
-### Create env:
+#### Create env:
 ```
 python3 -m venv <env-name> --system-site-packages
 git clone git@github.com:walterbrunetti/hand-signal-driving-car.git
 
 ```
 
-### Install requirements:
+#### Install requirements:
 `sudo apt install libatlas-base-dev   # tensorflow dependency`
 
 activate env
@@ -30,7 +37,7 @@ activate env
 
 
 
-### Mac
+#### Mac
 ```
 python3 -m venv <env-name> 
 git clone git@github.com:walterbrunetti/hand-signal-driving-car.git
