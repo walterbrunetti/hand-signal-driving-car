@@ -8,7 +8,7 @@ If a Punch is detected, the robot will move forward.
 If a Palm is detected, the robot will stop moving.
 
 
-
+<img src="robot-1.png" style="width: 50%; height: auto;">
 
 
 ### Camera 5MP OV5647 v1.3 - Brand: HobbyTronica
