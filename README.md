@@ -1,7 +1,7 @@
 # hand-signal-driving-car
 Basically It's a robot built with 3 wheels, a Rasberry Pi and a Camera.
 
-The model is trained to classify 2 types of images, the Punch and the Palm.
+The model is trained to classify 2 types of hand signal, the Punch and the Palm.
 
 If a Punch is detected, the robot will move forward.
 
